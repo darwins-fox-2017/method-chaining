@@ -22,14 +22,43 @@ const titleCaseName = (string) => {
 
 // Our object with the chainable methods using class in ES6
 class Program {
-  titleCaseName (string) {
-    // ...
+  constructor (data) {
+    this.data = data
+    this.indexData = 0
+    this.user = null
+  }
+
+  findUser(email) {
+    for (let i=0; i<this.data.length; i++) {
+      if(this.data[i].email === email) {
+        this.user = this.data[i]
+      }
+    }
+    return this
+  }
+
+  formatName() {
+    let namaLengkap = `${this.user.firstName} ${this.user.lastName}`
+    this.user.fullName = namaLengkap
+    return this
+  }
+
+  formatData() {
+    this.user.format = `Member name: ${this.user.fullName}\nID: ${this.user.id}\nEmail: ${this.user.email}`
+    return this
+  }
+
+  displayUser() {
+    console.log(this.user.format)
+    return this
   }
 }
 
 // -----------------------------------------------------------------------------
 // Kode di bawah ini merupakan driver code, jangan diubah ya
-const program = new Program()
+var program = new Program(data)
+//console.log(program.findUser('spongebob@crustycrab.com'))
+//console.log(program.displayUser())
 program
   .findUser('spongebob@crustycrab.com')
   .formatName()
