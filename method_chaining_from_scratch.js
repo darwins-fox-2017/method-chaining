@@ -22,14 +22,51 @@ const titleCaseName = (string) => {
 
 // Our object with the chainable methods using class in ES6
 class Program {
-  titleCaseName (string) {
-    // ...
+  constructor (value) {
+    this.data = value;
+    this.people = null;
+
   }
+
+  findUser(email) {
+
+    for(let i=0; i <this.data.length; i++) {
+      if(this.data[i].email === email) {
+        this.people = this.data[i]; 
+      }
+
+      return this
+      
+    }
+    
+
+  }
+
+  formatName() {
+     // tambah property di objek
+     this.people.fullNama = `${this.people.firstName} ${this.people.lastName}`
+     return this 
+  }
+
+  formatData() {
+    this.people.identitas = `${this.people.firstName} ${this.people.lastName} ${this.people.email} ${this.people.id}`
+    return this
+  }
+
+  displayUser() {
+    console.log("Member name : " + this.people.fullNama);
+    console.log("ID : " + this.people.id);
+    console.log("Email : " + this.people.email);
+
+  }
+
+
+
 }
 
 // -----------------------------------------------------------------------------
 // Kode di bawah ini merupakan driver code, jangan diubah ya
-const program = new Program()
+let program = new Program(data)
 program
   .findUser('spongebob@crustycrab.com')
   .formatName()
@@ -40,3 +77,5 @@ program
 // Member name: SpongeBob SquarePants
 // ID: 101
 // Email: spongebob@crustycrab.com
+
+
