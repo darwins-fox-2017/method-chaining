@@ -1,4 +1,6 @@
+"use strict"
 // The data store:
+
 let data = [{
   firstName: 'SpongeBob',
   lastName: 'SquarePants',
@@ -24,9 +26,9 @@ let data = [{
 class Program {
   constructor(data){
     this.data = data
-    this.userFound
-    this.userFullname
-    this.userFormatData
+    this.userFound= null
+    this.userFullname = ''
+    this.userFormatData = ''
   }
   //
   // titleCaseName (string) {
@@ -53,20 +55,16 @@ class Program {
   }
 
   displayUser(){
+    // console.log(this.userFullname);
     return this.userFormatData
+    // return this.userFullname
   }
 }
 
 // -----------------------------------------------------------------------------
 // Kode di bawah ini merupakan driver code, jangan diubah ya
 const program = new Program(data)
-console.log(
-program
-  .findUser('spongebob@crustycrab.com')
-  // .formatName()
-  // .formatData()
-  .displayUser()
-);
+console.log(program.findUser('spongebob@crustycrab.com').formatName().formatData().displayUser());
 // Hasil:
 // Member name: SpongeBob SquarePants
 // ID: 101

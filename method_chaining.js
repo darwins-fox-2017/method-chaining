@@ -1,3 +1,4 @@
+"use strict"
 const shout_backwards = (data) => {
   let allcaps = data.toUpperCase()
   let splitting = allcaps.split('')
@@ -6,7 +7,7 @@ const shout_backwards = (data) => {
   return backwards + '!!!'
 }
 
-// console.log(shout_backwards('Hello World'))
+console.log(shout_backwards('Hello World'))
 
 class stringManipulation {
   constructor(string) {
@@ -42,7 +43,8 @@ class stringManipulation {
     return this.string
   }
 }
-let string = 'hallo dunia'
+
+let string = 'diky arga'
 
 let stringManipulation1 = new stringManipulation(string)
 console.log(stringManipulation1.allcaps().splitting().reversing().joining().addsuffix().display());
