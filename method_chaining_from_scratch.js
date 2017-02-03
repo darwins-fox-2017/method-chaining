@@ -25,6 +25,38 @@ class Program {
   titleCaseName (string) {
     // ...
   }
+
+  constructor(){
+    this.input = data
+    this.tampung  = ""
+    this.hasil= []
+  }
+
+  findUser(string){
+    this.string = string
+    return this
+  }
+
+  formatName(){
+    for (let i = 0; i < this.input.length; i++) {
+      if(this.string == this.input[i].email){
+        this.tampung = i
+        return this
+      }
+    }
+  }
+
+  formatData(){
+    this.hasil.push(this.input[this.tampung])
+    return this
+  }
+
+  displayUser(){
+    console.log(`
+    Member Name : ${this.hasil[0]['firstName']} ${this.hasil[0]['lastName']}
+    ID : ${this.hasil[0]['id']}
+    Email : ${this.hasil[0]['email']}`)
+  }
 }
 
 // -----------------------------------------------------------------------------
