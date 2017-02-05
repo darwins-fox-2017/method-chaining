@@ -25,6 +25,34 @@ class Program {
   titleCaseName (string) {
     // ...
   }
+
+  constructor() {
+    this.input = data
+    this.user = ''
+  }
+
+  findUser(email) {
+    for (var i = 0; i < this.input.length; i++) {
+      if (this.input[i].email == email) {
+        this.user = this.input[i]
+      }
+    }
+    return this
+  }
+
+  formatName() {
+    this.user.name = `${this.user.firstName} ${this.user.lastName}`
+    return this
+  }
+
+  formatData() {
+    this.user.format = `RESULT \nFirstname: ${this.user.firstName} \nLastname: ${this.user.lastName} \nEmail: ${this.user.email} \nID: ${this.user.id} \n`
+    return this
+  }
+
+  displayUser() {
+    console.log(this.user.format);
+  }
 }
 
 // -----------------------------------------------------------------------------
@@ -40,3 +68,10 @@ program
 // Member name: SpongeBob SquarePants
 // ID: 101
 // Email: spongebob@crustycrab.com
+
+
+program
+  .findUser('patric.star@gmail.com')
+  .formatName()
+  .formatData()
+  .displayUser()
