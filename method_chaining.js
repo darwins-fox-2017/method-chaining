@@ -1,3 +1,4 @@
+'use strict'
 const shout_backwards = (data) => {
   let backwards = data.toUpperCase().split('').reverse().join('')
   return backwards + '!!!'
@@ -15,8 +16,8 @@ class Word {
     return this
   }
 
-  splitting(delimiter)
-    this.word = this.word.split(delimiter)
+  splitting() {
+    this.word = this.word.split('')
     return this
   }
 
@@ -40,16 +41,17 @@ class Word {
   }
 }
 
-const word = new Word('Danang Aji Tamtomo');
+var word = new Word('Danang Aji Tamtomo');
 // -----------------------------------------------------------------------------
 // Kode di bawah ini merupakan driver code, jangan diubah ya
-const example = word
+var example = word
   .allcaps()
   .splitting()
   .reversing()
-  .backwards()
+  .backwards('')
   .addsuffix()
   .print()
 
+// console.log(example);
 // Alternatif penulisan:
 // word.allcaps().splitting().reversing().backwards().addsuffix().print()
